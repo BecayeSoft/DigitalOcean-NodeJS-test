@@ -3,13 +3,15 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
+const {DB_USERNAME, DB_PASSWORD} = require('./helper')
+
 const  Thing = require('./models/Thing')
 
 const app = express()
 
 //Connexion à la base de données
 //'mongodb+srv://user:Mongodb2001@mycluster.dntqr.mongodb.net/MongoDB?retryWrites=true&w=majority'
-mongoose.connect('mongodb+srv://becaye:kNNtpTmQaAMEV9zW@mycluster.dntqr.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@mycluster.dntqr.mongodb.net/?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
 		useUnifiedTopology: true
     })
